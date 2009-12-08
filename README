@@ -1,0 +1,3 @@
+This is a OFDM simulator that tests the theory of Non-Parametric ML Channel Estimation
+
+Example Run: runthis('04PSK',2,0)

@@ -1,4 +1,4 @@
-function shat = demodulator(y,cnstl)
+function shat = demodulator2(y,cnstl)
 %   Demodulates the given vector of symbols and return shat (bits). 
 %   Use biterr to count bit errors
 %
@@ -12,7 +12,7 @@ function shat = demodulator(y,cnstl)
 %
     
     if cnstl == '02PSK'
-        H = modem.pskdemod(2);
+        H = modem.pskdemod(2) ;
         shat = demodulate(H,y);
 
     elseif cnstl == '04PSK'

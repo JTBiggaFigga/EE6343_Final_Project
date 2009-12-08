@@ -1,5 +1,5 @@
 function shat = demodulator(y,cnstl)
-    
+    shat = 0;
     % Make hard decision, order output vector 
 
      if cnstl == '02PSK'

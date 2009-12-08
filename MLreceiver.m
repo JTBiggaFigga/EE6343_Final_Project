@@ -1,17 +1,15 @@
-function [y,index] = MLreceiver(r,H,cnstl)
-
-[N,M] = size(H);
+function [x, index] = MLreceiver(Y,h,sigma,cnstl)
 
 symbolList = allsymbols(cnstl);  % lists constellation symbols given constl
 list = [];
+sum = zeros(1,size(Y,1));
+x = zeros(size(Y,1),size(Y,2));
 
-for j = 1:length(symbolList);
-    list(:,j) = eucdist(r, H * symbolList(j)).^2;   % size=[Nxlength(symbolList)]
+for i = 1:size(Y,1)
+    for j = 1:size(Y,2)
+        list = (1/size(Y,2)) * (parzen_func(sigma, Y(i,j) - h(j) .* symbolList));
+        [val, index] = max(list);  % size=[1x1]
+        x(i,j) = symbolList(index);
+    end
 end
-
-%size(list)
-w = sum(list);  % size=[1xlength(symbolList)]
-[val, index] = min(w);  % size=[1x1]
-y = symbolList(index);
-
 

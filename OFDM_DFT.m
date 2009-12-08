@@ -21,7 +21,7 @@ if strcmp(status,'TX');
     % Appending cylic prefix 16 samples
     x_end = [x(:,end-CP+1:end) x]; 	% size = 10x80
     size(x_end);
- 
+
     output = x_end;
 				
 % Receiver - RX
@@ -39,7 +39,7 @@ elseif strcmp(status,'RX');
    size(ModY);
 
    output = ModY; 			%size = 10x48
-		     
+
 else
     display('Please enter OFDM DFT status');
 end
